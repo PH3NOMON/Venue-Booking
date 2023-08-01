@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The WeEvent</title>
+    <link rel="icon" type="image/x-icon" href="/public/Images/logo.png" />
+    <meta name="description" content="This is the description" />
+
+    <link rel="stylesheet" href="/public/forms.css" />
+  </head>
+
+  <body>
+    <%- include('partials/header'); %>
+   
+ <form action="/login" class="form" method="POST">
+   <p>
+        Welcome,<span>Log in to continue</span>
+    </p> 
+    </div>
+    <input type="email" id="email" placeholder="Email" name="email">
+    <input type="password" id="password" placeholder="Password" name="password">
+    <button class="oauthButton">
+        Log in
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 17 5-5-5-5"></path><path d="m13 17 5-5-5-5"></path></svg>
+    </button>
+
+    <%- include('partials/footer'); %>
+  </body>
+</html>

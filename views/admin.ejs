@@ -1,0 +1,47 @@
+
+    <style>
+        table{
+           border: 1px solid black;
+            width: 100%;
+            color: #588c7e;
+            font-family: monospace;
+            font-size: 25px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/header'); %>
+    <h1>Admin Portal </h1><br>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Start_time</th>
+            <th>End_time</th>
+            <th>venue_type</th>
+            <th>venue_location</th>
+            <th>Status</th>
+        </tr>
+        <% if(show.length > 0){ %>
+            <% for(var i=0; i<show.length; i++){ %>
+                <tr>
+                    <td><%= show[i].id %></td>
+                    <td><%= show[i].Start_time %></td>
+                    <td><%= show[i].End_time %></td>
+                    <td><%= show[i].venue_type %></td>
+                    <td><%= show[i].venue_location %></td>
+                    <td>
+                        <a href="/update?id=<%= show[i].id %>">Update</a>
+                        <a href="/delete?id=<%= show[i].id %>">Delete</a>
+                    </td>
+                </tr>
+            <% } %>
+
+        <% }else{ %>
+            <h1>no </h1>
+
+        <% } %>
+    </table>
+    <%- include('partials/footer'); %>
+</body>
+</html>

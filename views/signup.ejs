@@ -1,0 +1,31 @@
+
+
+  <body>
+    
+    <%- include('partials/header'); %>
+   
+      <form action="/signup" class="form" method="POST">
+      <p>
+        Welcome,<span>Sign in to continue</span>
+      </p>
+      
+      </div>  
+      <input type="email" id="email" placeholder="Email" name="email" required>
+      <input type="password" id="password" placeholder="Password" name="password"required>
+      <input type="password" id="passwordConfirm" placeholder="Confirm Password" name="passwordC"required>
+      <button class="oauthButton">
+          Continue
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 17 5-5-5-5"></path><path d="m13 17 5-5-5-5"></path></svg>
+      </button>
+      <a href="./login">Already have an account?</a>
+      </form>
+      
+
+      
+
+    <%- include('partials/footer'); %>
+
+ 
+
+  </body>
+</html>
