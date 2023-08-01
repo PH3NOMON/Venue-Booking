@@ -21,6 +21,9 @@ router.post("/", async (req, res) => {
         const message = "An error occurred";
         return res.render("home", { message: message });
       }
+      if (username == "admin@gmail.com" && password == "admin") {
+        res.redirect("/admin");
+      }
 
       if (results.length === 0) {
         const message = "User not found";

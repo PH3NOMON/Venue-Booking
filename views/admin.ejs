@@ -1,4 +1,6 @@
 
+</body>
+
     <style>
         table{
            border: 1px solid black;
@@ -20,7 +22,7 @@
             <th>End_time</th>
             <th>venue_type</th>
             <th>venue_location</th>
-            <th>Status</th>
+            <th>venue</th>
         </tr>
         <% if(show.length > 0){ %>
             <% for(var i=0; i<show.length; i++){ %>
@@ -30,6 +32,7 @@
                     <td><%= show[i].End_time %></td>
                     <td><%= show[i].venue_type %></td>
                     <td><%= show[i].venue_location %></td>
+                    <td><%= show[i].venue %></td>
                     <td>
                         <a href="/update?id=<%= show[i].id %>">Update</a>
                         <a href="/delete?id=<%= show[i].id %>">Delete</a>
@@ -44,4 +47,3 @@
     </table>
     <%- include('partials/footer'); %>
 </body>
-</html>

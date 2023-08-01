@@ -11,15 +11,19 @@
   <body>
     <%- include('partials/header'); %>
    
- <form action="/login" class="form" method="POST">
+ <form action="/book" class="form" method="POST">
    <p>
-        Welcome,<span>Log in to continue</span>
+        Welcome,<span>Fill the form to book </span>
     </p> 
     </div>
-    <input type="email" id="email" placeholder="Email" name="email">
-    <input type="password" id="password" placeholder="Password" name="password">
+    <input type="text"  placeholder="venue" name="venue">
+     <input type="text"  placeholder="Start_time" name="Start_time">
+      <input type="text"  placeholder="End_time" name="End_time">
+       <input type="text"  placeholder="venue_location" name="venue_location">
+        <input type="text"  placeholder="venue_type" name="venue_type">
+    
     <button class="oauthButton">
-        Log in
+        Submit
         <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 17 5-5-5-5"></path><path d="m13 17 5-5-5-5"></path></svg>
     </button>
 
