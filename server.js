@@ -20,6 +20,7 @@ const signupPage = require("./routes/signup");
 const loginPage = require("./routes/login");
 const logoutPage = require("./routes/logout");
 const adminPage = require("./routes/admin");
+const bookpage = require("./routes/book");
 
 app.use("/", homePage);
 app.use("/about", aboutPage);
@@ -28,6 +29,7 @@ app.use("/signup", signupPage);
 app.use("/login", loginPage);
 app.use("/logout", logoutPage);
 app.use("/admin", adminPage);
+app.use("/book", bookpage);
 
 //set app port
 app.listen(3000, () => {

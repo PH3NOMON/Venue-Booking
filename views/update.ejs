@@ -1,33 +1,33 @@
-<form action="" method="POST">
-  <input type="hidden" name="id" value="<%= show[0].id %>" />
+<form action="/admin" method="POST">
+  <input type="hidden" name="id" value="<%= booking[0].id %>" />
   <input
     type="time"
     name="Start_time"
-    value="<%= show[0].Start_time %>"
+    value="<%= booking[0].Start_time %>"
     placeholder="Start_time"
   />
   <input
     type="time"
     name="End_time"
-    value="<%= show[0].End_time %>"
+    value="<%= booking[0].End_time %>"
     placeholder="End_time"
   />
   <input
     type="text"
     name="venue"
-    value="<%= show[0].venue %>"
+    value="<%= booking[0].venue %>"
     placeholder="venue"
   />
   <input
     type="text"
     name="venue_type"
-    value="<%= show[0].venue_type %>"
+    value="<%= booking[0].venue_type %>"
     placeholder="venue_type"
   />
   <input
     type="text"
     name="venue_location"
-    value="<%= show[0].venue_location %>"
+    value="<%= booking[0].venue_location %>"
     placeholder="venue_location"
   />
   <button type="submit">Submit</button>

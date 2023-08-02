@@ -10,6 +10,7 @@ router.get("/", (req, res) => {
 
 router.post("/", async (req, res) => {
   const { email, password } = req.body;
+  const token = req.headers.cookie;
 
   // Query the database to find the user by email
   connection.query(
@@ -20,9 +21,6 @@ router.post("/", async (req, res) => {
         console.error("Error while querying the database:", err);
         const message = "An error occurred";
         return res.render("home", { message: message });
-      }
-      if (username == "admin@gmail.com" && password == "admin") {
-        res.redirect("/admin");
       }
 
       if (results.length === 0) {
