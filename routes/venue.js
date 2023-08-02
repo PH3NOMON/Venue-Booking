@@ -1,34 +1,31 @@
 const express = require("express");
 const router = express.Router();
 
+const connection = require("../datab");
+
 router.get("/", (req, res) => {
   const token = req.headers.cookie;
-  res.render("venue", { token: token });
-});
+  const user_id = token.split("=")[1];
 
-router.get("/venue", function (req, res) {
-  connection.query(
-    "SELECT * from timetable",
-    function (error, results, fields) {
-      if (error) console.log(error);
-      res.render("/venue", { timetable: results });
+  if (!token) {
+    return res.send("Error: User authentication failed.");
+  }
+
+  // Define the SQL query to fetch the booked details for the logged-in user
+  const selectQuery = `
+    SELECT venue, Start_time, End_time, venue_location, venue_type
+    FROM timetable
+    WHERE user_id = ?
+  `;
+
+  // Use the connection connection to execute the query
+  connection.query(selectQuery, [user_id], (err, rows) => {
+    if (err) {
+      return res.send("Error occurred while fetching data.");
     }
-  );
-});
 
-router.post("/venue", function (req, res) {
-  var available_time = req.body.available_time;
-  var venue_type = req.body.venue_type;
-  var venue_location = req.body.venue_location;
-
-  connection.query(
-    "insert into timetable(venue_type,venue_location,available_time) values(?,?,?) ",
-    [venue_type, venue_location, available_time],
-    function (error, results, fields) {
-      if (error) console.log(error);
-      res.redirect("/venue");
-    }
-  );
+    res.render("venue", { timetable: rows, token: token });
+  });
 });
 
 module.exports = router;

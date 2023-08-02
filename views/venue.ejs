@@ -27,6 +27,55 @@
       font-family: faune, fantasy;
     }
 
+    @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700");
+
+    h1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin-right: auto;
+      margin-left: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 50vh;
+    }
+
+    .table {
+      width: 100%;
+      border: 1px solid #eeeeee;
+    }
+
+    .table-header {
+      display: flex;
+      width: 100%;
+      background: #000;
+      padding: 18px 0;
+    }
+
+    .table-row {
+      display: flex;
+      width: 100%;
+      padding: 18px 0;
+    }
+    .table-row:nth-of-type(odd) {
+      background: #eeeeee;
+    }
+
+    .table-data,
+    .header__item {
+      flex: 1 1 20%;
+      text-align: center;
+    }
+
+    .header__item {
+      text-transform: uppercase;
+    }
+
     .photo-grid {
       position: relative;
       font-style: italic;
@@ -206,6 +255,52 @@
   <body>
     <%- include('partials/header'); %>
     <h2 class="section-header">VENUE</h2>
+    <h1>Venue Booking Details</h1>
+    <% if (timetable.length === 0) { %>
+    <p>No bookings found for the logged-in user.</p>
+    <% } else { %>
+    <div class="container">
+      <div class="table">
+        <div class="table-header">
+          <div class="header__item">
+            <a id="name" class="filter__link" href="#">ID</a>
+          </div>
+          <div class="header__item">
+            <a id="wins" class="filter__link filter__link--number" href="#"
+              >VENUE</a
+            >
+          </div>
+          <div class="header__item">
+            <a id="draws" class="filter__link filter__link--number" href="#"
+              >START TIME</a
+            >
+          </div>
+          <div class="header__item">
+            <a id="losses" class="filter__link filter__link--number" href="#"
+              >END TIME
+            </a>
+          </div>
+          <div class="header__item">
+            <a id="total" class="filter__link filter__link--number" href="#"
+              >VENUE LOCATION</a
+            >
+          </div>
+        </div>
+        <% timetable.forEach(function(booking) { %>
+        <div class="table-content">
+          <div class="table-row">
+            <div class="table-data"><%= booking.id %></div>
+            <div class="table-data"><%= booking.venue %></div>
+            <div class="table-data"><%= booking.Start_time %></div>
+            <div class="table-data"><%= booking.End_time %></div>
+            <div class="table-data"><%= booking.venue_location %></div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+    <% } %>
+
     <main ontouchstart>
       <section class="photo-grid">
         <ul class="grid-isotope">

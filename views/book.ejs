@@ -16,11 +16,17 @@
         Welcome,<span>Fill the form to book </span>
     </p> 
     </div>
+    <input type="hidden" id="user_id" name="user_id" value="<%= token %>">
     <input type="text"  placeholder="venue" name="venue">
      <input type="datetime-local"  placeholder="Start_time" name="Start_time">
       <input type="datetime-local"  placeholder="End_time" name="End_time">
        <input type="text"  placeholder="venue_location" name="venue_location">
-        <input type="text"  placeholder="venue_type" name="venue_type">
+         <select  placeholder="venue_type" name="venue_type" required>
+      <option value="Meeting">Meeting</option>
+      <option value="Party">Party</option>
+      <option value="Conference">Conference</option>
+    </select><br>
+        
     
     <button class="oauthButton">
         Submit

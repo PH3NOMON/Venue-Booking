@@ -33,8 +33,9 @@ router.post("/", async (req, res) => {
         const message = "Incorrect password";
         return res.render("home", { message: message });
       }
+      console.log();
 
-      const token = "secret_key121389123";
+      const token = user.id;
       res.cookie("token", token, { httpOnly: true });
       const message = "You have successfully logged in!";
       return res.render("home", { token: token, message: message });
