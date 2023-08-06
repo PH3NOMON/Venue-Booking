@@ -4,8 +4,9 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   const token = req.headers.cookie;
+  const message = "";
 
-  res.render("signup", { token: token });
+  res.render("signup", { token: token, message: message });
 });
 
 router.post("/", function (req, res) {
@@ -48,8 +49,8 @@ router.post("/", function (req, res) {
             console.log(error);
           } else {
             console.log("User Registered");
-            const message = "User Registered";
-            return res.render("success", {
+            const message = "User Registered, Please proceed with login.";
+            return res.render("signup", {
               message: message,
               token: token,
             });

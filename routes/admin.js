@@ -28,46 +28,6 @@ router.get("/admin", (req, res) => {
   });
 });
 
-// Update booking by ID
-// router.get("/update/:id", (req, res) => {
-//   const bid = req.params.id;
-//   // Fetch booking details from the database by ID
-//   const selectQuery = `SELECT * FROM timetable WHERE id = ?`;
-//   connection.query(selectQuery, [bid], (err, rows) => {
-//     if (err || rows.length === 0) {
-//       return res.send("Booking not found.", { token: token });
-//     }
-//     res.render("update", { token: null, timetable: rows[0] });
-//   });
-// });
-
-// // Handle form submission for updating booking
-// router.post("/update/:id", (req, res) => {
-//   const bid = req.params.id;
-//   const { venue, Start_time, End_time, venue_location, venue_type } = req.body;
-
-//   // Define the SQL query to update the booking in the database
-//   const updateQuery = `
-//     UPDATE timetable
-//     SET venue = ?, Start_time = ?, End_time = ?, venue_location = ?, venue_type = ?
-//     WHERE id = ?
-//   `;
-
-//   // Use the connection connection to execute the query
-//   connection.query(
-//     updateQuery,
-//     [venue, Start_time, End_time, venue_location, venue_type, bid],
-//     (err, result) => {
-//       if (err) {
-//         return res.send("Error occurred while updating the booking.", {
-//           token: token,
-//         });
-//       }
-//       res.redirect("/admin");
-//     }
-//   );
-// });
-
 // Delete booking by ID
 router.get("/delete/:id", (req, res) => {
   const bid = req.params.id;

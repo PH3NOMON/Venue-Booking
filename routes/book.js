@@ -5,8 +5,9 @@ const connection = require("../datab");
 
 router.get("/", (req, res) => {
   const token = req.headers.cookie;
+  const message = "";
 
-  res.render("book", { token: token });
+  res.render("book", { token: token, message: message });
 });
 
 router.post("/", function (req, res) {
@@ -16,11 +17,14 @@ router.post("/", function (req, res) {
   const user_id = token.split("=")[1];
 
   if (!token) {
-    return res.send("Error: User authentication failed.");
+    const message = "Error: User authentication failed.";
+    return res.render("book", {
+      message: message,
+    });
   }
 
-  const formattedStartTime = formatDate(Start_time);
-  const formattedEndTime = formatDate(End_time);
+  // const formattedStartTime = formatDate(Start_time);
+  // const formattedEndTime = formatDate(End_time);
 
   const insertQuery = `
     INSERT INTO timetable (venue, Start_time, End_time, venue_location, venue_type, user_id)
@@ -37,14 +41,14 @@ router.post("/", function (req, res) {
     insertQuery,
     [
       venue,
-      formattedStartTime,
-      formattedEndTime,
+      Start_time,
+      End_time,
       venue_location,
       venue_type,
       user_id,
       venue,
-      formattedStartTime,
-      formattedEndTime,
+      Start_time,
+      End_time,
       venue_location,
       venue_type,
       user_id,
@@ -52,20 +56,33 @@ router.post("/", function (req, res) {
     (err, result) => {
       if (err) {
         console.log(err);
-        return res.send("Error occurred while saving the data.");
+
+        const message = "Error occurred while saving the data.";
+        return res.render("book", {
+          message: message,
+          token: token,
+        });
       }
 
       if (result.affectedRows === 0) {
-        return res.send("Error: The booking already exists.");
+        const message = " The booking already exists.";
+        return res.render("book", {
+          message: message,
+          token: token,
+        });
       }
 
-      res.send("Data saved successfully!");
+      const message = "Data saved successfully!";
+      return res.render("book", {
+        message: message,
+        token: token,
+      });
     }
   );
 });
 
-function formatDate(dateTimeStr) {
-  const date = new Date(dateTimeStr);
-  return date.toISOString().slice(0, 19).replace("T", " ");
-}
+// function formatDate(dateTimeStr) {
+//   const date = new Date(dateTimeStr);
+//   return date.toISOString().slice(0, 19).replace("T", " ");
+// }
 module.exports = router;

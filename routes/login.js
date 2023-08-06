@@ -5,7 +5,8 @@ const connection = require("../datab");
 
 router.get("/", (req, res) => {
   const token = req.headers.cookie;
-  res.render("login", { token: token });
+  const message = "";
+  res.render("login", { token: token, message: message });
 });
 
 router.post("/", async (req, res) => {
@@ -16,29 +17,38 @@ router.post("/", async (req, res) => {
   connection.query(
     "SELECT * FROM users WHERE email = ?",
     [email], // Pass the email value as a parameter to prevent SQL injection
-    (err, results) => {
+    (err, results, rows) => {
       if (err) {
         console.error("Error while querying the database:", err);
         const message = "An error occurred";
-        return res.render("home", { message: message });
+        const token = null;
+        return res.render("login", { token: token, message: message });
       }
 
       if (results.length === 0) {
         const message = "User not found";
-        return res.render("home", { message: message });
+        const token = null;
+        return res.render("login", { token: token, message: message });
       }
       const user = results[0];
 
+      if (email === "admin@gmail.com" && user.password === "admin") {
+        const token = req.headers.cookie;
+        const message = "Admin login successful!";
+
+        return res.redirect("admin");
+      }
+
       if (user.password !== password) {
         const message = "Incorrect password";
-        return res.render("home", { message: message });
+        const token = null;
+        return res.render("login", { token: token, message: message });
       }
-      console.log();
 
       const token = user.id;
       res.cookie("token", token, { httpOnly: true });
       const message = "You have successfully logged in!";
-      return res.render("home", { token: token, message: message });
+      return res.render("login", { token: token, message: message });
     }
   );
 });
