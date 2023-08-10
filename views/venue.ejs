@@ -278,6 +278,11 @@
               >VENUE LOCATION</a
             >
           </div>
+          <div class="header__item">
+            <a id="total" class="filter__link filter__link--number" href="#"
+              >Phone Number</a
+            >
+          </div>
         </div>
         <% timetable.forEach(function(booking) { %>
         <div class="table-content">
@@ -287,6 +292,7 @@
             <div class="table-data"><%= booking.Start_time %></div>
             <div class="table-data"><%= booking.End_time %></div>
             <div class="table-data"><%= booking.venue_location %></div>
+            <div class="table-data"><%= booking.Phone %></div>
           </div>
         </div>
         <% }); %>

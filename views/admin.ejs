@@ -69,6 +69,7 @@
 			<div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">START TIME</a></div>
 			<div class="header__item"><a id="losses" class="filter__link filter__link--number" href="#">END TIME </a></div>
 			<div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">VENUE LOCATION</a></div>
+      <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Phone Number</a></div>
             <div class="header__item"><a id="action" class="filter__link" href="#">Actions</a></div>
 		</div>
          <% timetable.forEach(function(booking) { %>
@@ -79,6 +80,7 @@
 				<div class="table-data"><%= booking.Start_time %></div>
 				<div class="table-data"><%= booking.End_time %></div>
 				<div class="table-data"><%= booking.venue_location %></div>
+        <div class="table-data"><%= booking.Phone %></div>
                 <div class="table-data"> <a href="admin/delete/<%= booking.id %>"><button>delete</button></a></div>
                 
 			</div>	

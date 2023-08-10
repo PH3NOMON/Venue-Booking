@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
 
   // Define the SQL query to fetch the booked details for the logged-in user
   const selectQuery = `
-    SELECT id, venue, Start_time, End_time, venue_location, venue_type
+    SELECT id, venue, Start_time, End_time, venue_location, venue_type , Phone
     FROM timetable
     WHERE user_id = ?
   `;

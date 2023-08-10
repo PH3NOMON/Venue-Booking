@@ -12,7 +12,8 @@ router.get("/", (req, res) => {
 
 router.post("/", function (req, res) {
   console.log(req.body);
-  const { Start_time, venue, End_time, venue_location, venue_type } = req.body;
+  const { Start_time, venue, End_time, venue_location, venue_type, Phone } =
+    req.body;
   const token = req.headers.cookie;
   const user_id = token.split("=")[1];
 
@@ -27,13 +28,13 @@ router.post("/", function (req, res) {
   // const formattedEndTime = formatDate(End_time);
 
   const insertQuery = `
-    INSERT INTO timetable (venue, Start_time, End_time, venue_location, venue_type, user_id)
-    SELECT ?, ?, ?, ?, ?, ?
+    INSERT INTO timetable (venue, Start_time, End_time, venue_location, Phone, venue_type,  user_id )
+    SELECT ?, ?, ?, ?, ?, ?, ?
      FROM DUAL
     WHERE NOT EXISTS (
       SELECT 1
       FROM timetable
-      WHERE venue = ? AND Start_time = ? AND End_time = ? AND venue_location = ? AND venue_type = ? AND user_id = ?
+      WHERE venue = ? AND Start_time = ? AND End_time = ? AND venue_location = ? AND Phone = ? AND venue_type = ? AND user_id = ? 
     )
     LIMIT 1
   `;
@@ -44,12 +45,15 @@ router.post("/", function (req, res) {
       Start_time,
       End_time,
       venue_location,
+      Phone,
       venue_type,
       user_id,
+
       venue,
       Start_time,
       End_time,
       venue_location,
+      Phone,
       venue_type,
       user_id,
     ],
@@ -72,7 +76,8 @@ router.post("/", function (req, res) {
         });
       }
 
-      const message = "Data saved successfully!";
+      const message =
+        "Booking Data saved successfully! Please Check your Phone for Payment Details !";
       return res.render("book", {
         message: message,
         token: token,
