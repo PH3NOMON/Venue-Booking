@@ -69,20 +69,20 @@ label.logo {
   background-image: url("Images/Header Background.jpg");
   background-blend-mode: multiply;
   background-size: cover;
-  padding-bottom: 20px;
+  padding-bottom: 8px;
 }
 
 .shop-name {
   text-align: center;
   margin: 0;
-  font-size: 4em;
+  font-size: 3em;
   font-family: "Booter - Zero Zero";
   font-weight: normal;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .shop-name-large {
-  font-size: 8em;
+  font-size: 6em;
 }
 
 body {
@@ -135,13 +135,12 @@ p {
   position: fixed;
   left: 0;
   bottom: 0;
-  height: 80px;
+  height: 70px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   background-image: url("Images/Header Background.jpg");
   background-blend-mode: multiply;
   background-size: cover;
-  padding-bottom: 0px;
 }
 
 .main-footer-container {
@@ -184,31 +183,6 @@ p {
 
 .btn-header:hover {
   background-color: rgba(255, 255, 255, 0.3);
-}
-
-.btn-play {
-  display: block;
-  margin: 0 auto;
-  color: #2d9cdb;
-  font-size: 4em;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  padding: 0;
-  text-align: center;
-}
-
-.btn-primary {
-  color: white;
-  background-color: #1b0dda;
-  border: none;
-  border-radius: 0.3em;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.btn-primary:hover {
-  background-color: #c4e609;
 }
 
 /*About me Cards */

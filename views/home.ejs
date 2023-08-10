@@ -11,28 +11,137 @@
     <%- include('partials/header'); %>
 
     <!-- Slideshow container -->
-    <div class="slideshow-container">
-      <div class="text">Fabulous Party Venues </div>
-      
-      <!-- Full-width images with number and caption text -->
-      <div class="mySlides fade">
-        
-        <div class="numbertext">1 / 3</div>
-        <img src="/public/Images/P1.jpg" style="width: 100%" />
-        
-      </div>
 
-      <div class="mySlides fade">
-        <div class="numbertext">2 / 3</div>
-        <img src="/public/Images/p2.jpg" style="width: 100%" />
+    <section>
+      <div class="container">
+        <div class="carousel">
+          <input type="radio" name="slides" checked="checked" id="slide-1" />
+          <input type="radio" name="slides" id="slide-2" />
+          <input type="radio" name="slides" id="slide-3" />
+          <input type="radio" name="slides" id="slide-4" />
+          <input type="radio" name="slides" id="slide-5" />
+          <input type="radio" name="slides" id="slide-6" />
+          <ul class="carousel__slides">
+            <li class="carousel__slide">
+              <figure>
+                <div>
+                  <img src="/public/Images/P1.jpg" alt="" />
+                </div>
+                <figcaption>
+                  Starlight Soiree Lounge
+                  <span class="credit">Photo: Tim Marshall</span>
+                  <a href="login">
+                    <div class="oauthButton">Log in to book</div>
+                  </a>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel__slide">
+              <figure>
+                <div>
+                  <img src="/public/Images/p2.jpg" alt="" />
+                </div>
+                <figcaption>
+                  Enchanted Gardens Events Hall
+                  <span class="credit">Photo: Christian Joudrey</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel__slide">
+              <figure>
+                <div>
+                  <img src="/public/Images/p3.jpg" alt="" />
+                </div>
+                <figcaption>
+                  Starlight Soiree Lounge
+                  <span class="credit">Photo: Steve Carter</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel__slide">
+              <figure>
+                <div>
+                  <img
+                    src="https://www.stockvault.net//data/2016/11/11/215633/thumb16.jpg"
+                    alt=""
+                  />
+                </div>
+                <figcaption>
+                  Retro Arcade Extravaganza
+                  <span class="credit">Photo: Aleksandra Boguslawska</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel__slide">
+              <figure>
+                <div>
+                  <img
+                    src="https://www.stockvault.net//data/2018/07/24/253377/thumb16.jpg"
+                    alt=""
+                  />
+                </div>
+                <figcaption>
+                  Whimsical Wonderland Pavilion
+                  <span class="credit">Photo: Rosan Harmens</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel__slide">
+              <figure>
+                <div>
+                  <img
+                    src="https://www.stockvault.net/data/2017/10/05/239763/preview16.jpg"
+                    alt=""
+                  />
+                </div>
+                <figcaption>
+                  Ocean Breeze Beach Club
+                  <span class="credit">Photo: Annie Spratt</span>
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+          <ul class="carousel__thumbnails">
+            <li>
+              <label for="slide-1"
+                ><img src="/public/Images/P1.jpg" alt=""
+              /></label>
+            </li>
+            <li>
+              <label for="slide-2"
+                ><img src="/public/Images/p2.jpg" alt=""
+              /></label>
+            </li>
+            <li>
+              <label for="slide-3"
+                ><img src="/public/Images/p3.jpg" alt=""
+              /></label>
+            </li>
+            <li>
+              <label for="slide-4"
+                ><img
+                  src="https://www.stockvault.net//data/2016/11/11/215633/thumb16.jpg"
+                  alt=""
+              /></label>
+            </li>
+            <li>
+              <label for="slide-5"
+                ><img
+                  src="https://www.stockvault.net//data/2018/07/24/253377/thumb16.jpg"
+                  alt=""
+              /></label>
+            </li>
+            <li>
+              <label for="slide-6"
+                ><img
+                  src="https://www.stockvault.net/data/2017/10/05/239763/preview16.jpg"
+                  alt=""
+              /></label>
+            </li>
+          </ul>
+        </div>
       </div>
-
-      <div class="mySlides fade">
-        <div class="numbertext">3 / 3</div>
-        <img src="/public/Images/p3.jpg" style="width: 100%" />
-      </div>
-
-     
+    </section>
 
     <!-- articles -->
 
@@ -45,7 +154,11 @@
           <div class="article-body">
             <h2>Exploring Boating Facilities by Venue</h2>
             <p>
-             Discover a comprehensive guide to boating facilities across various venues and destinations. Whether you're a seasoned sailor or a beginner seeking a maritime adventure, this resource covers marinas, yacht clubs, and boat ramps at stunning locations worldwide. 
+              Discover a comprehensive guide to boating facilities across
+              various venues and destinations. Whether you're a seasoned sailor
+              or a beginner seeking a maritime adventure, this resource covers
+              marinas, yacht clubs, and boat ramps at stunning locations
+              worldwide.
             </p>
             <a href="#" class="read-more">
               Read more <span class="sr-only">about this is some title</span>
@@ -73,7 +186,12 @@
           <div class="article-body">
             <h2>Scenic Sightseeing Venues</h2>
             <p>
-             Experience the world's most captivating waterway vistas with our curated guide to scenic sightseeing venues. Discover serene lakeside panoramas, majestic river views, and breathtaking coastal landscapes that will leave you in awe. Whether you're seeking tranquility or adventure, these carefully selected destinations offer unparalleled
+              Experience the world's most captivating waterway vistas with our
+              curated guide to scenic sightseeing venues. Discover serene
+              lakeside panoramas, majestic river views, and breathtaking coastal
+              landscapes that will leave you in awe. Whether you're seeking
+              tranquility or adventure, these carefully selected destinations
+              offer unparalleled
             </p>
             <a href="#" class="read-more">
               Read more <span class="sr-only">about this is some title</span>
@@ -101,7 +219,12 @@
           <div class="article-body">
             <h2>Nature's Untouched Havens</h2>
             <p>
-             Unveil the beauty of nature's unspoiled treasures with our curated guide to fresh sightseeing venues. Immerse yourself in the serenity of secluded lakes, lush rivers, and untamed coastal landscapes. From hidden coves to remote waterways, these pristine destinations offer an unparalleled escape into the heart of nature's wonders.
+              Unveil the beauty of nature's unspoiled treasures with our curated
+              guide to fresh sightseeing venues. Immerse yourself in the
+              serenity of secluded lakes, lush rivers, and untamed coastal
+              landscapes. From hidden coves to remote waterways, these pristine
+              destinations offer an unparalleled escape into the heart of
+              nature's wonders.
             </p>
             <a href="#" class="read-more">
               Read more <span class="sr-only">about this is some title</span>
@@ -125,22 +248,4 @@
 
     <%- include('partials/footer'); %>
   </body>
-  <script>
-    let slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) {
-        slideIndex = 1;
-      }
-      slides[slideIndex - 1].style.display = "block";
-      setTimeout(showSlides, 2000); // Change image every 2 seconds
-    }
-  </script>
 </html>
