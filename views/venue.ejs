@@ -35,23 +35,25 @@
       min-height: 50vh;
     }
 
-    .table {
-      width: 100%;
-      border: 1px solid #000000;
-    }
+   .table {
+  width: 100%;
+  border: 1px solid #eeeeee;
+}
 
-    .table-header {
-      display: flex;
-      width: 100%;
-      background: #7e5d5d;
-      padding: 18px 0;
-    }
+.table-header {
+  display: flex;
+  width: 100%;
+  background: #bb5c5ca4;
+  padding: 24px 0; /* Increased padding */
+  border-bottom: 1px solid #000000; 
+}
 
-    .table-row {
-      display: flex;
-      width: 100%;
-      padding: 26px 0;
-    }
+.table-row {
+  display: flex;
+  width: 100%;
+  padding: 20px 0; /* Increased padding */
+  border-bottom: 1px solid #080202;
+}
     .table-data{
        padding: 10px;
     }
@@ -273,14 +275,16 @@
               >END TIME
             </a>
           </div>
+         
+         
           <div class="header__item">
             <a id="total" class="filter__link filter__link--number" href="#"
-              >VENUE LOCATION</a
+              >Phone Number</a
             >
           </div>
           <div class="header__item">
             <a id="total" class="filter__link filter__link--number" href="#"
-              >Phone Number</a
+              >Pay Status</a
             >
           </div>
         </div>
@@ -291,8 +295,8 @@
             <div class="table-data"><%= booking.venue %></div>
             <div class="table-data"><%= booking.Start_time %></div>
             <div class="table-data"><%= booking.End_time %></div>
-            <div class="table-data"><%= booking.venue_location %></div>
             <div class="table-data"><%= booking.Phone %></div>
+            <div class="table-data"><%= booking.Status %></div>
           </div>
         </div>
         <% }); %>
@@ -344,10 +348,7 @@
                       <dt>Date</dt>
                       <dd>02 March 2021</dd>
                     </div>
-                    <div>
-                      <dt>Location</dt>
-                      <dd>San Francisco, CA</dd>
-                    </div>
+                   
                     <div>
                       <dt>Camera</dt>
                       <dd>iPhone 12 Pro Max</dd>
@@ -436,9 +437,7 @@
                       <dd>01 March 2021</dd>
                     </div>
                     <div>
-                      <dt>Location</dt>
-                      <dd>Patrick’s Point State Park, Trinidad, CA</dd>
-                    </div>
+                     
                     <div>
                       <dt>Camera</dt>
                       <dd>iPhone 12 Pro Max</dd>
@@ -523,8 +522,7 @@
                       <dd>28 February 2021</dd>
                     </div>
                     <div>
-                      <dt>Location</dt>
-                      <dd>Crescent Harbor, Crescent City, CA</dd>
+                     
                     </div>
                     <div>
                       <dt>Camera</dt>
@@ -610,8 +608,7 @@
                       <dd>27 February 2021</dd>
                     </div>
                     <div>
-                      <dt>Location</dt>
-                      <dd>Waldport, OR</dd>
+                      
                     </div>
                     <div>
                       <dt>Camera</dt>
@@ -697,8 +694,7 @@
                       <dd>26 February 2021</dd>
                     </div>
                     <div>
-                      <dt>Location</dt>
-                      <dd>Waldport, OR</dd>
+                      
                     </div>
                     <div>
                       <dt>Camera</dt>
@@ -784,8 +780,7 @@
                       <dd>26 February 2021</dd>
                     </div>
                     <div>
-                      <dt>Location</dt>
-                      <dd>Willamette National Forest, OR</dd>
+                      
                     </div>
                     <div>
                       <dt>Camera</dt>
@@ -874,8 +869,7 @@
                       <dd>26 February 2021</dd>
                     </div>
                     <div>
-                      <dt>Location</dt>
-                      <dd>Cascadia, OR</dd>
+                     
                     </div>
                     <div>
                       <dt>Camera</dt>
@@ -961,8 +955,7 @@
                       <dd>11 February 2021</dd>
                     </div>
                     <div>
-                      <dt>Location</dt>
-                      <dd>Chinatown, San Francisco, CA</dd>
+                     
                     </div>
                     <div>
                       <dt>Camera</dt>

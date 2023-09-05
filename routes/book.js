@@ -12,8 +12,15 @@ router.get("/", (req, res) => {
 
 router.post("/", function (req, res) {
   console.log(req.body);
-  const { Start_time, venue, End_time, venue_location, venue_type, Phone } =
-    req.body;
+  const {
+    Start_time,
+    venue,
+    End_time,
+
+    venue_type,
+    Phone,
+    Status,
+  } = req.body;
   const token = req.headers.cookie;
   const user_id = token.split("=")[1];
 
@@ -24,70 +31,68 @@ router.post("/", function (req, res) {
     });
   }
 
-  // const formattedStartTime = formatDate(Start_time);
-  // const formattedEndTime = formatDate(End_time);
+  // Check if the requested time slot is already booked
+  const checkQuery = `
+  SELECT 1
+  FROM timetable
+  WHERE venue = ? AND Start_time = ? AND End_time = ?
+  LIMIT 1
+`;
 
-  const insertQuery = `
-    INSERT INTO timetable (venue, Start_time, End_time, venue_location, Phone, venue_type,  user_id )
-    SELECT ?, ?, ?, ?, ?, ?, ?
-     FROM DUAL
-    WHERE NOT EXISTS (
-      SELECT 1
-      FROM timetable
-      WHERE venue = ? AND Start_time = ? AND End_time = ? AND venue_location = ? AND Phone = ? AND venue_type = ? AND user_id = ? 
-    )
-    LIMIT 1
-  `;
   connection.query(
-    insertQuery,
-    [
-      venue,
-      Start_time,
-      End_time,
-      venue_location,
-      Phone,
-      venue_type,
-      user_id,
+    checkQuery,
+    [venue, Start_time, End_time],
+    (checkErr, checkResult) => {
+      if (checkErr) {
+        console.log(checkErr);
 
-      venue,
-      Start_time,
-      End_time,
-      venue_location,
-      Phone,
-      venue_type,
-      user_id,
-    ],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-
-        const message = "Error occurred while saving the data.";
+        const message = "Error occurred while checking availability.";
         return res.render("book", {
           message: message,
           token: token,
         });
       }
 
-      if (result.affectedRows === 0) {
-        const message = " The booking already exists.";
+      if (checkResult.length > 0) {
+        const message = "The requested time slot is already booked.";
         return res.render("book", {
           message: message,
           token: token,
         });
       }
 
-      const message =
-        "Booking Data saved successfully! Please Check your Phone for Payment Details !";
-      return res.render("book", {
-        message: message,
-        token: token,
-      });
+      // If the time slot is available, insert the booking
+      const insertQuery = `
+      INSERT INTO timetable (venue, Start_time, End_time, Phone, venue_type, user_id, Status)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `;
+
+      connection.query(
+        insertQuery,
+        [venue, Start_time, End_time, Phone, venue_type, user_id, "Pending"],
+        (insertErr, insertResult) => {
+          if (insertErr) {
+            console.log(insertErr);
+
+            const message = "Error occurred while saving the data.";
+            return res.render("book", {
+              message: message,
+              token: token,
+            });
+          }
+
+          console.log(insertResult);
+
+          const message =
+            "Booking Data saved successfully! Please Check your Phone for Payment Details!";
+          return res.render("book", {
+            message: message,
+            token: token,
+          });
+        }
+      );
     }
   );
 });
 
-// function formatDate(dateTimeStr) {
-//   const date = new Date(dateTimeStr);
-//   return date.toISOString().slice(0, 19).replace("T", " ");
-// }
 module.exports = router;

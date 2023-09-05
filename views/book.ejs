@@ -5,7 +5,7 @@
     <link rel="icon" type="image/x-icon" href="/public/Images/logo.png" />
     <meta name="description" content="This is the description" />
 
-    <link rel="stylesheet" href="/public/forms.css" />
+    
   </head>
 
   <body>
@@ -15,17 +15,29 @@
    <p>
         Welcome,<span>Fill the form to book </span>
     </p> 
-    </div>
-    <input type="text"  placeholder="venue" name="venue" required>
+    
+     <label for="venue">Venue:</label>
+    <select  placeholder="venue" id="venue" name="venue" required>
+      <option >Enchanted Gardens Events Hall</option>
+      <option >Starlight Soiree Lounge</option>
+      <option >Retro Arcade Extravaganza</option>
+      <option >Whimsical Wonderland Pavilion</option>
+      <option >Ocean Breeze Beach Club</option>
+      </select>
+      
+     <label for="start_time">Start Time:</label>
      <input type="datetime-local"  placeholder="Start_time" name="Start_time"required>
+     <label for="end_time">End Time:</label>
       <input type="datetime-local"  placeholder="End_time"  name="End_time"required>
-       <input type="text"  placeholder="venue_location"  name="venue_location"required>
+      
        <input type="tel"  placeholder="Phone number"  name="Phone"required>
-         <select  placeholder="venue_type" name="venue_type" required>
+
+   
+      <select  placeholder="venue_type" name="venue_type" required>
       <option value="Meeting">Meeting</option>
       <option value="Party">Party</option>
       <option value="Conference">Conference</option>
-    </select><br>
+    </select>
         
     
     <button class="oauthButton">

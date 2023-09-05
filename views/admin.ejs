@@ -14,7 +14,7 @@
         }
        
   .container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   display: flex;
@@ -25,21 +25,23 @@
 }
 
 .table {
-  width: 100%;
+  width: 115%;
   border: 1px solid #eeeeee;
 }
 
 .table-header {
   display: flex;
-  width: 100%;
-  background: #000;
-  padding: 18px 0;
+  width: 115%;
+  background: #bb5c5ca4;
+  padding: 18px 0; /* Increased padding */
+  border-bottom: 1px solid #000000; 
 }
 
 .table-row {
   display: flex;
-  width: 100%;
-  padding: 18px 0;
+  width: 115%;
+  padding: 18px 0; /* Increased padding */
+  border-bottom: 1px solid #080202;
 }
 .table-row:nth-of-type(odd) {
   background: #eeeeee;
@@ -68,8 +70,9 @@
 			<div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">VENUE</a></div>
 			<div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">START TIME</a></div>
 			<div class="header__item"><a id="losses" class="filter__link filter__link--number" href="#">END TIME </a></div>
-			<div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">VENUE LOCATION</a></div>
+			
       <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Phone Number</a></div>
+      <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Payment Status</a></div>
             <div class="header__item"><a id="action" class="filter__link" href="#">Actions</a></div>
 		</div>
          <% timetable.forEach(function(booking) { %>
@@ -79,9 +82,11 @@
 				<div class="table-data"><%= booking.venue %></div>
 				<div class="table-data"><%= booking.Start_time %></div>
 				<div class="table-data"><%= booking.End_time %></div>
-				<div class="table-data"><%= booking.venue_location %></div>
         <div class="table-data"><%= booking.Phone %></div>
-                <div class="table-data"> <a href="admin/delete/<%= booking.id %>"><button>delete</button></a></div>
+       <div class="table-data"><%= booking.Status %></div>
+
+        <div class="table-data"> <a href="admin/update/<%= booking.id %>"><button>update</button></a></div>
+                <div class="table-data"> <a href="admin/delete/<%= booking.id %>"><button>Cancel</button></a></div>
                 
 			</div>	
 		</div>	
@@ -89,7 +94,5 @@
         
 	</div>
 </div>
- 
-
-    
+  
 </body>

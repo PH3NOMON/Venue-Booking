@@ -1,34 +1,59 @@
-<form action="/admin" method="POST">
-  <input type="hidden" name="id" value="<%= booking[0].id %>" />
-  <input
-    type="time"
-    name="Start_time"
-    value="<%= booking[0].Start_time %>"
-    placeholder="Start_time"
-  />
-  <input
-    type="time"
-    name="End_time"
-    value="<%= booking[0].End_time %>"
-    placeholder="End_time"
-  />
-  <input
-    type="text"
-    name="venue"
-    value="<%= booking[0].venue %>"
-    placeholder="venue"
-  />
-  <input
-    type="text"
-    name="venue_type"
-    value="<%= booking[0].venue_type %>"
-    placeholder="venue_type"
-  />
-  <input
-    type="text"
-    name="venue_location"
-    value="<%= booking[0].venue_location %>"
-    placeholder="venue_location"
-  />
-  <button type="submit">Submit</button>
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The WeEvent</title>
+    <link rel="icon" type="image/x-icon" href="/public/Images/logo.png" />
+    <meta name="description" content="This is the description" />
+
+    <link rel="stylesheet" href="/public/forms.css" />
+  </head>
+
+  <body>
+    <%- include('partials/header'); %>
+
+    <form action="" class="form" method="POST">
+      <input type="hidden" name="id" id="id" value="<%= booking[0].id %>" />
+     
+      <label for="venue">Venue:</label>
+      <select
+        placeholder="venue"
+        id="venue"
+        name="venue"
+        value="<%= booking[0].venue %>"
+        required
+      >
+        <option>Enchanted Gardens Events Hall</option>
+        <option>Starlight Soiree Lounge</option>
+        <option>Retro Arcade Extravaganza</option>
+        <option>Whimsical Wonderland Pavilion</option>
+        <option>Ocean Breeze Beach Club</option>
+      </select>
+
+       <label for="start_time">Start Time:</label>
+     <input type="datetime-local" value="<%= booking[0].Start_time %>" placeholder="Start_time" name="Start_time"required>
+     <label for="end_time">End Time:</label>
+      <input type="datetime-local" value="<%= booking[0].End_time %>" placeholder="End_time"  name="End_time"required>
+      
+       <input type="tel" value="<%= booking[0].Phone %>" placeholder="Phone number"  name="Phone"required>
+
+   
+      <select  value="<%= booking[0].venue_type %>" placeholder="venue_type" name="venue_type" required>
+      <option value="Meeting">Meeting</option>
+      <option value="Party">Party</option>
+      <option value="Conference">Conference</option>
+      </select>
+      <label for="start_time">Status:</label>
+      <select  value="<%= booking[0].Status %>" id="Status" name="Status" required>
+      <option value="Accepted">Accepted</option>
+      <option value="Denied">Denied</option>
+    </select>
+        
+    
+    <button class="oauthButton">
+        Submit
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 17 5-5-5-5"></path><path d="m13 17 5-5-5-5"></path></svg>
+    </button>
+   
+    <%- include('partials/footer'); %>
+  </body>
+</html>

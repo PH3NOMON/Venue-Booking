@@ -17,7 +17,7 @@ figcaption {
   font-style: bold;
 }
 .credit {
-  color: rgb(175, 238, 28);
+  color: rgb(230, 232, 223);
   font-size: 1em;
   font-style: italic;
 }
@@ -170,7 +170,7 @@ figcaption {
 }
 .carousel__slide .credit {
   margin-top: 1rem;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(204, 238, 6, 0.5);
   display: block;
 }
 .carousel__slide.scrollable {
